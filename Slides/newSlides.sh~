@@ -1,0 +1,9 @@
+type=$1
+title=$2
+
+cd ${type}
+mkdir ${title}
+ln -s beamertheme* ${title}/.
+ln -s themeImages ${title}/.
+
+cp ../example.tex ${title}/${title}.tex
