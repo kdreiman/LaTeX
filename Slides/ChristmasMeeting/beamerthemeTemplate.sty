@@ -1,0 +1,460 @@
+% the various libraries we will be using
+\ifdefined\suppressfontnotfounderror
+  \expandafter\let\csname xetex_suppressfontnotfounderror:D\endcsname
+    \suppressfontnotfounderror
+\else
+  \expandafter\let\csname xetex_suppressfontnotfounderror:D\endcsname
+  \luatexsuppressfontnotfounderror
+\fi
+
+\usepackage{tikz}
+\usetikzlibrary{calc}
+
+\usepackage{textgreek}
+\usepackage{textcomp}
+
+\usepackage[none]{hyphenat}
+\usepackage{fontspec}
+\defaultfontfeatures{Ligatures=TeX}
+\usepackage{blindtext}
+\usepackage{multirow}
+\usepackage{csvsimple}
+\usepackage{subfig}
+\usepackage{caption}
+
+\usepackage{relsize}
+
+\usepackage{transparent}
+\usepackage{cancel}
+
+\usepackage{feynmp-auto}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\usepackage{multicol}
+\usepackage{color}
+
+\usepackage{hyperref}
+
+\usepackage{listings}
+
+% bold math symbols
+\usepackage{bm}
+
+\usepackage{colortbl}
+
+\usepackage{array}
+
+\usepackage{tabulary}
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage{seqsplit}
+
+\usepackage{calc}
+
+% line spacing
+%\usepackage{setspace}
+
+
+\lstset{ breakatwhitespace,
+  language=C++,
+  columns=fullflexible,
+  keepspaces,
+  breaklines,
+  tabsize=3, 
+  showstringspaces=false,
+  extendedchars=true }
+
+% lstlisting breaklines without white space
+\makeatletter
+\def\lst@lettertrue{\let\lst@ifletter\iffalse}
+\makeatother
+
+% nice coloured boxes
+\usepackage{pst-node}
+\psset{arrowscale=2,arrows=->}
+\def\VPh{\vphantom{\displaystyle\sum_{i=n}^m {i^2}}}
+\def\psBox#1#2{\psframebox[fillcolor=#1,fillstyle=solid]{\VPh\displaystyle#2}}
+
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usepackage{mathtools}
+\usepackage{hf-tikz}
+
+\newcommand{\highlight}[2][yellow]{\mathchoice%
+  {\colorbox{#1}{$\displaystyle#2$}}%
+  {\colorbox{#1}{$\textstyle#2$}}%
+  {\colorbox{#1}{$\scriptstyle#2$}}%
+  {\colorbox{#1}{$\scriptscriptstyle#2$}}}%
+
+%%%%
+
+\newenvironment{xitemize}{%
+  \smaller
+  \itemize
+}{%
+  \enditemize
+}
+% define colours
+\definecolor{TemplateRed}{RGB}{230,37,52}
+\definecolor{ATLASBlue}{RGB}{11,128,192}
+\definecolor{ATLASBlue_light}{RGB}{84,166,211}
+\definecolor{ATLASBlue_lighter}{RGB}{206,230,242}
+\definecolor{ATLASBlue_lightest}{RGB}{243,249,252}
+\definecolor{UniBlue}{RGB}{8,58,130}
+\definecolor{Black}{RGB}{0,0,0}
+\definecolor{TemplateBlack}{RGB}{43,40,40}
+\definecolor{TemplateBlue}{RGB}{22,190,207}
+\definecolor{TemplateWhite}{RGB}{255,255,255}
+\definecolor{TemplateGrey}{RGB}{107,110,108}
+\definecolor{LightGrey}{RGB}{224,224,224}
+
+\definecolor{highred}{RGB}{255,178,178}
+\definecolor{highgreen}{RGB}{178,255,178}
+
+\makeatletter
+\def\highlightLighter#1{%
+  \fboxrule2pt %
+  \hsize=\dimexpr\hsize-2\fboxrule-2\fboxsep\relax
+  #1%
+  \@endpbox\unskip\setbox0\lastbox\bgroup
+  \fboxrule2pt %
+  \fcolorbox{red}{ATLASBlue_lighter}{\box0}\hfill}
+
+\makeatletter
+\def\highlightLightest#1{%
+  \fboxrule2pt %
+  \hsize=\dimexpr\hsize-2\fboxrule-2\fboxsep\relax
+  #1%
+  \@endpbox\unskip\setbox0\lastbox\bgroup
+  \fboxrule2pt %
+  \fcolorbox{red}{ATLASBlue_lightest}{\box0}\hfill}
+
+
+
+\makeatletter
+\newcommand{\textsubsuperscript}[2]{%
+  \begingroup
+  \settowidth{\@tempdima}{\textsubscript{#1}}%
+  \settowidth{\@tempdimb}{\textsuperscript{#2}}%
+  \ifdim\@tempdima<\@tempdimb
+  \setlength{\@tempdima}{\@tempdimb}%
+  \fi
+  \makebox[\@tempdima][l]{%
+    \rlap{\textsubscript{#1}}\textsuperscript{#2}}%
+  \endgroup}
+\makeatother
+
+
+
+\newcommand\abs[1]{\left|#1\right|}
+
+\newcommand\thickbar[1]{\accentset{\rule{.8em}{1.5pt}}{#1}}
+\newcommand{\mt}{\ensuremath{\mathrm m_{T}}}
+\newcommand{\pt}{\ensuremath{\mathrm p_{T}}}
+% \newcommand{\met}{\ensuremath{ \cancel{E_{T}} }}
+\newcommand{\met}{\ensuremath{ E_{T}^{miss} }}
+\newcommand{\wprime}{\ensuremath{W^{\prime}}}
+\newcommand{\wpplu}{\ensuremath{W^{\prime+}}}
+\newcommand{\wpmin}{\ensuremath{W^{\prime-}}}
+\newcommand{\zprime}{\ensuremath{Z^{\prime}}}
+
+\newcommand\Wider[2][3em]{%
+  \makebox[\linewidth][c]{%
+    \begin{minipage}{\dimexpr\textwidth+#1\relax}
+      \raggedright#2
+    \end{minipage}%
+  }%
+}
+
+\makeatletter
+\newcommand{\extratiny}{\@setfontsize{\srcsize}{5pt}{5pt}}
+
+\newcommand\HUGE{\@setfontsize\Huge{35pt}{35pt}} 
+
+\makeatother
+
+% margins
+\setbeamersize{text margin left=0.5cm}
+\setbeamersize{text margin right=0.5cm}
+
+
+% basicstyle={\ttfamily\extratiny}
+
+\setmainfont{Source Serif Pro}
+\setsansfont{Source Sans Pro}
+\setmonofont{Source Code Pro}
+
+% set colours
+\setbeamercolor{itemize item}{fg=Black}
+\setbeamercolor{enumerate item}{fg=Black}
+\setbeamercolor{alerted text}{fg=Black}
+\setbeamercolor{section in toc}{fg=TemplateBlack}
+
+% set fonts
+\setbeamerfont{itemize/enumerate body}{size=\normalsize}
+\setbeamerfont{itemize/enumerate subbody}{size=\small}
+\setbeamerfont{itemize/enumerate subsubbody}{size=\footnotesize}
+
+% make the itemize bullets pixelated >
+%\setbeamertemplate{itemize item}{
+%  \tikz{
+%     \draw[fill=Black,draw=none] (0, 0) rectangle(0.1, 0.1);
+%    \draw[fill=Black,draw=none] (0.1, 0.1) rectangle(0.2, 0.2);
+%    \draw[fill=Black,draw=none] (0, 0.2) rectangle(0.1, 0.3);
+%  }
+%}
+%% make the subitems also pixelated >, but a little smaller 
+%\setbeamertemplate{itemize subitem}{
+%  \tikz{
+%    \draw[fill=Black,draw=none] (0, 0) rectangle(0.075, 0.075);
+%    \draw[fill=Black,draw=none] (0.075, 0.075) rectangle(0.15, 0.15);
+%    \draw[fill=Black,draw=none] (0, 0.15) rectangle(0.075, 0.225);
+%  }
+%}
+%
+%\setbeamertemplate{itemize subsubitem}{
+%  \tikz{
+%    \draw[fill=Black,draw=none] (0, 0) rectangle(0.05625, 0.05625);
+%    \draw[fill=Black,draw=none] (0.05625, 0.05625) rectangle(0.1125, 0.1125);
+%    \draw[fill=Black,draw=none] (0, 0.1125) rectangle(0.05625, 0.16875);
+%  }
+%}
+
+\defbeamertemplate{itemize item}{image}{\small\includegraphics[height=1.6ex]{themeImages/bauble.png}}
+\defbeamertemplate{itemize subitem}{image}{\scriptsize\includegraphics[height=1.6ex]{themeImages/bauble.png}}
+\defbeamertemplate{itemize subsubitem}{image}{\tiny\includegraphics[height=1.6ex]{themeImages/bauble.png}}
+
+\setbeamertemplate{itemize item}[image]
+\setbeamertemplate{itemize subitem}[image]
+\setbeamertemplate{itemize subsubitem}[image]
+
+% disable navigation
+\setbeamertemplate{navigation symbols}{}
+
+% custom draw the title page above
+\setbeamertemplate{title page}{}
+
+% again, manually draw the frame title above
+\setbeamertemplate{frametitle}{}
+
+% disable "Figure:" in the captions
+\setbeamertemplate{caption}{\tiny\insertcaption}
+\setbeamertemplate{caption label separator}{}
+
+\newcommand{\beginbackup}{
+  \newcounter{framenumberbackup}
+  \setcounter{framenumberbackup}{\value{framenumber}}
+}
+\newcommand{\backupend}{
+  \addtocounter{framenumberbackup}{-\value{framenumber}}
+  \addtocounter{framenumber}{\value{framenumberbackup}} 
+}
+
+
+% since I don't know a better way to do this, these are all switches
+% doing `\setcounter{showProgressBar}{0}` will turn the progress bar off (I turn it off for Appendix slides)
+% etc
+\newcounter{showProgressBar}
+\setcounter{showProgressBar}{1}
+\newcounter{showSlideNumbers}
+\setcounter{showSlideNumbers}{1}
+\newcounter{showSlideTotal}
+\setcounter{showSlideTotal}{1}
+
+% use \makeatletter for our progress bar definitions
+% progress bar idea from http://tex.stackexchange.com/a/59749/44221
+% slightly adapted for visual purposes here
+\makeatletter
+\newcount\progressbar@tmpcounta% auxiliary counter
+\newcount\progressbar@tmpcountb% auxiliary counter
+\newdimen\progressbar@pbwidth %progressbar width
+\newdimen\progressbar@tmpdim % auxiliary dimension
+
+%%%%
+\progressbar@pbwidth=\paperwidth
+%%%%
+
+\newdimen\slidewidth % auxiliary dimension
+\newdimen\slideheight % auxiliary dimension
+
+\newlength{\msize}
+\setlength{\msize}{\dimexpr(\paperwidth-.75cm)\relax}
+
+
+
+% make the progress bar go across the screen
+\progressbar@pbwidth=\msize
+%\progressbar@pbwidth=\the\paperwidth
+\slidewidth=\the\paperwidth
+\slideheight=\the\paperheight
+
+% use tikz to draw everything
+% it may not be the best, but it's easy to work with
+% and looks good
+% TODO: base title slide and contents slide on something other than slide numbers :/
+\setbeamertemplate{background}{
+  % deal with progress bar stuff
+  % (calculate where it should go)
+  \progressbar@tmpcounta=\insertframenumber
+  \progressbar@tmpcountb=\inserttotalframenumber
+  %\progressbar@tmpdim=\progressbar@pbwidth
+  \progressbar@tmpdim=.5\progressbar@pbwidth
+  \multiply\progressbar@tmpdim by \progressbar@tmpcounta
+  \divide\progressbar@tmpdim by \progressbar@tmpcountb
+  %%%
+  \progressbar@tmpdim=2\progressbar@tmpdim
+  %%%
+  \begin{tikzpicture}
+    % set up the entire slide as the canvas
+    \useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
+    
+    % the background
+    \fill[color=TemplateWhite] (0,0) rectangle(\the\paperwidth,\the\paperheight);
+    
+    % separate the drawing based on if we're the first (title) slide or not
+    \ifnum\thepage=1\relax
+    % the title page
+    % draw the fills
+    \fill[color=ATLASBlue] (0, 3.5cm) rectangle(\slidewidth,\slideheight);
+    
+    % draw the actual text
+    \node[anchor=south,text width=\slidewidth-1cm,inner xsep=0.5cm] at (0.5\slidewidth,3.6cm) {\color{TemplateWhite}\HUGE\textbf{\inserttitle}};
+    \node[anchor=north east,text width=\slidewidth-1cm,align=right] at (\slidewidth-0.4cm,3.6cm) {\color{ATLASBlue}\tiny\insertsubtitle};
+    
+    \node[anchor=north east, inner sep=0cm] (themeImages/unilogo) at (0.97\slidewidth,0.945\slideheight)
+    {\includegraphics[width=5.5cm]{themeImages/UoLLogoReversed.eps}};
+    
+   % \node[anchor=north west, inner sep=0cm] (themeImages/unilogo) at (0.0\slidewidth,1.03\slideheight)
+    %{\includegraphics[width=5cm]{themeImages/ATLAS-Logo-Blue-invert-RGB.png}};
+    \node[anchor=north west, inner sep=0cm] (themeImages/unilogo) at (0.03\slidewidth,0.97\slideheight)
+    {\includegraphics[width=4.5cm]{themeImages/ATLAS-25-regular-white-noexp-top.png}};
+     \node[anchor=north west, inner sep=0cm] (themeImages/unilogo) at (0.048\slidewidth,0.905\slideheight)
+    {\includegraphics[width=0.22cm]{themeImages/santahat3.png}};
+
+    
+    % \node[above] at(0.5\slidewidth,2.3cm) {\color{TemplateBlack}\tiny by};
+    \node at (0.5\slidewidth,2cm) {\color{TemplateBlack}\LARGE\insertauthor};
+    \node at (0.5\slidewidth,1.25cm) {\color{TemplateGrey}\Large\insertinstitute};
+    
+    % add the date in the corner
+    \node[anchor=south west] at(0,0) {\color{TemplateGrey}\tiny\insertdate};
+
+    \node[anchor=south east, inner sep=0cm, opacity=0.4] (themeImages/unilogo) at (\slidewidth,0cm)
+    %{\includegraphics[height=3.4cm]{themeImages/higgs_blue_cropped.png}};
+    {\includegraphics[height=3.4cm]{themeImages/Snowflake.png}};
+
+
+%    \node[anchor=north west, inner sep=0cm] (themeImages/unilogo) at (0,0.48\slideheight)
+%    {\includegraphics[width=\slidewidth]{themeImages/Lights.png}};
+\node[anchor=north west, inner sep=0.18cm] (themeImages/unilogo) at (0,0.45\slideheight)
+    {\includegraphics[width=\slidewidth]{themeImages/Lights3.png}};
+
+
+    \else
+    % NOT the title page
+%     \node[anchor=north west, inner sep=-.5cm] (themeImages/unilogo) at (0,0.92\slideheight)
+%    {\includegraphics[width=1.1\slidewidth]{themeImages/Tinsel3.png}};
+    % title bar
+    \fill[color=ATLASBlue] (0, \slideheight-1.2cm) rectangle(\slidewidth,\slideheight);
+    
+    % swap the comment on these to add section titles to slide titles
+    % \node[anchor=north,text width=11.8cm,inner xsep=0.5cm,inner ysep=0.25cm] at (6.4cm,9.6cm) {\color{TemplateWhite}\Large\textbf{\insertsectionhead: \insertframetitle}};
+    
+   
+    
+    \node[anchor=north,text width=\slidewidth-1cm,inner xsep=0.5cm,inner ysep=0.31cm, outer xsep=3.3cm] at (0.5\slidewidth,\slideheight) {\color{TemplateWhite}\huge\textbf{\insertframetitle}};
+    
+    \node[anchor=north east, inner sep=0cm] (themeImages/unilogo) at (0.97\slidewidth,0.98\slideheight)
+    {\includegraphics[width=3.2cm]{themeImages/UoLLogoReversed.eps}};
+    
+    \node[anchor=north east, inner sep=0cm] (themeImages/unilogo) at (0.999\slidewidth,0.96\slideheight)
+    {\includegraphics[width=.07\slidewidth,angle=270]{themeImages/holly4.png}};
+
+	
+        
+    % if we're showing a progress bar, show it
+    % (I disable the progress bar and slide numbers for the "Appendix" slides)
+    \ifnum \value{showProgressBar}>0\relax%
+    % the the progress bar icon in the middle of the screen
+    \draw[fill=ATLASBlue_lighter,draw=none] (0cm,0cm) rectangle(\msize,0.25cm);
+    % test
+    %\draw[fill=ATLASBlue_light,draw=none] (\msize,0cm) rectangle(.8cm,0.25cm);
+    \draw[fill=ATLASBlue,draw=none] (0cm,0cm) rectangle(\progressbar@tmpdim,0.25cm);
+    
+    % bottom information
+    % \node[anchor=south west] at(0cm,0.25cm) {\color{TemplateGrey}\tiny\insertsection};
+    % if slide numbers are active
+    \ifnum \value{showSlideNumbers}>0\relax%
+    % if slide totals are active
+    \ifnum \value{showSlideTotal}>0\relax%
+    % draw both slide number and slide total
+    \node[anchor=south east] at(\slidewidth,-0.1cm) {\color{Black}\tiny\insertframenumber/\inserttotalframenumber};
+    \else
+    % slide totals aren't active, don't draw them
+    \node[anchor=south east] at(\slidewidth,-0.1cm) {\color{TemplateWhite}\tiny\insertframenumber};
+    \fi
+    \fi
+         \node[anchor=south west, inner sep=0cm] (themeImages/unilogo) at (0.0\slidewidth,0.0\slideheight)
+    {\includegraphics[width=.03\slidewidth]{themeImages/ginger.png}};
+    % don't show the progress bar?
+    \else
+    % section title in the bottom left
+    \node[anchor=south west] at(0cm,0cm) {\color{TemplateGrey}\tiny\insertsection};
+    % if we're showing slide numbers
+    \ifnum \value{showSlideNumbers}>0\relax%
+    % if slide totals are active
+    \ifnum \value{showSlideTotal}>0\relax%
+    % draw both slide number and slide total
+    \node[anchor=south east] at(\slidewidth,0cm) {\color{Black}\tiny\insertframenumber/\inserttotalframenumber};
+    \else
+    % slide totals aren't active, don't draw them
+    \node[anchor=south east] at(\slidewidth,0cm) {\color{Black}\tiny\insertframenumber};
+    \fi
+    \fi
+    \fi
+    \fi
+    
+
+  \end{tikzpicture}
+}
+\makeatother
+
+% add section titles
+\AtBeginSection{\frame{\sectionpage}}
+\setbeamertemplate{section page}
+{
+  \begin{tikzpicture}
+    % set up the entire slide as the canvas
+    \useasboundingbox (0,0) rectangle(\slidewidth,\slideheight);
+    % \fill[color=TemplateWhite] (0,0) rectangle(\the\paperwidth,\the\paperheight);
+    \fill[color=TemplateWhite] (-1cm, 2cm) rectangle (\slidewidth, \slideheight+0.1cm);
+    \fill[color=ATLASBlue] (-1cm, 0.5\slideheight-1cm) rectangle(\slidewidth, 0.5\slideheight+1cm);
+    \node[text width=\the\paperwidth-1cm,align=center] at (0.5\slidewidth, 0.5\slideheight) {\color{TemplateWhite}\Huge\textbf{\insertsection}};
+    
+    \node[align=center] (themeImages/unilogo) at (0.5\slidewidth,0.4\slideheight){\includegraphics[width=.4\slidewidth]{themeImages/wreath.png}};
+    
+     \node[align=center] (themeImages/unilogo) at (0.5\slidewidth,0.8\slideheight){\includegraphics[width=.3\slidewidth]{themeImages/nativity.jpg}};
+     
+  \end{tikzpicture}
+}
+
+
+
+\addtobeamertemplate{frametitle}{}{\vspace{0.3cm}} % increase
+
+
+
+% Easier bullet points from Carl 
+% put the contents in curly brackets
+\def\li #1 {\begin{itemize}\item #1\end{itemize}\vspace{-\topsep}}
+\def\lii #1 {\begin{itemize}\item[]\begin{itemize}\item #1\end{itemize}\end{itemize}\vspace{-\topsep}}
+\def\liii #1 {\begin{itemize}\item[]\begin{itemize}\item[]\begin{itemize}\item #1\end{itemize}\end{itemize}\end{itemize}\vspace{-\topsep} }
+
+
+
+% Easy columns from Carl
+% Argument is fraction of page width
+\newcommand{\cleft}[1]{\begin{columns}[T]\begin{column}{#1\textwidth}}
+\newcommand{\cright}[1]{\end{column}\begin{column}{#1\textwidth}}
+\newcommand{\cend}{\end{column}\end{columns}}
