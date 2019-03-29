@@ -1,0 +1,132 @@
+\begin{frame}
+	\frametitle{Limit Setting Procedure}
+	\vspace{10pt}
+	\begin{enumerate}
+	\item{For each mass point, p values are calculated for a range of signal scale factor ($\mu$) guesses.}
+	\li{These guesses were chosen by taking the asymptotic limit setting result for the workspace in question at each mass.}
+	\lii{See next slide.}
+	\li{When running the jobs a number of pseudo-experiments is chosen, split into n jobs.}
+	
+	\item{For each mass, a fit is performed for SF vs. p value.}
+		\li{Using a TSpline3 fit.}
+		\li{The x-position where the fit crosses p-value=0.05 is the 95\% CL limit value.}
+
+	\end{enumerate}
+\end{frame}
+
+
+
+	\input{Slides/MuGuesses}
+
+
+\begin{frame}
+	\frametitle{1. CL Calculation}
+	\cleft{.65}
+		
+		\vspace{20pt}
+		
+		\li{n pseudo-experiments for each scale factor for each mass point.}
+		
+		\li{Likelihood function is chosen - ratio of profile likelihoods :}
+		\vspace{10pt}
+		{\centering{
+		{\footnotesize{
+		\begin{equation*}
+			\log{\frac{L(\mu_{test}, conditional\,MLE\,for\,test\,nuisance)}{L(\mu_{null}, conditional\,MLE\,for\,null\,nuisance)}}
+		\end{equation*} }}
+		}}
+		\vspace{-5pt}
+		
+		\li{f(q|s+b) and f(q|b) are calculated for each scanned POI value}.
+
+	\vspace{-15pt}
+	\begin{center}
+	{\footnotesize{
+	\begin{minipage}{.5\linewidth}
+		\begin{equation*}
+			\begin{split}
+				CL_{s+b} = \frac{ \int_{min}^{q_{0}} test }{ \int_{min}^{max} test } \\
+				CL_{b} = \frac{ \int_{min}^{q_{0}} null }{ \int_{min}^{max} null } \\
+		\end{split}
+		\end{equation*}	
+	\end{minipage}\hfill
+	\begin{minipage}{.5\linewidth}
+		\begin{equation*}
+ 			CL_{s} = \frac{CL_{s+b}}{CL_{b}}
+  		\end{equation*}
+	\end{minipage}
+	
+	}}
+	\end{center}
+		
+		
+	\cright{.35}
+	\begin{center}
+
+		\footnotesize{m = 1 TeV, $\mu$ = 0.00201463479978}
+		\includegraphics[width=.9\linewidth]{plots/Limits/StatOnly_14STEP_100PE100_1000/plots_StatOnly_14STEP_100PE100_1000/peCombined_StatOnly_14STEP_100PE100_1000_1000_0.00201463479978_c3b.eps}	
+		
+		\footnotesize{m = 1 TeV, $\mu$ = 0.000604390439934}
+		\includegraphics[width=.9\linewidth]{plots/Limits/StatOnly_14STEP_100PE100_1000/plots_StatOnly_14STEP_100PE100_1000/peCombined_StatOnly_14STEP_100PE100_1000_1000_0.000604390439934_c3b.eps}	
+		
+	\end{center}
+	\cend
+	
+\end{frame}
+
+
+
+
+
+\begin{frame}
+	\frametitle{2. Finding the Value of mu}
+	\vspace{20pt}
+	
+
+	\li{For each mass value, a series of signal scaling factors are tested.}
+	\li{The $\mu$ value is chosen by extrapolating a fit for these points at p=0.05 (95\% CL).}	
+	
+	\cleft{.5}
+
+	\vspace{10pt}
+	\centering{1.5 TeV}
+	\vspace{10pt}
+	\includegraphics[width=.9\linewidth]{plots/Limits/StatOnly_14STEP_100PE100_1500/plots_StatOnly_14STEP_100PE100_1500/Overview_1500.eps}
+
+
+	\cright{.5}
+	
+	\vspace{10pt}
+	\centering{4 TeV}
+	\vspace{10pt}
+	\includegraphics[width=.9\linewidth]{plots/Limits/StatOnly_14STEP_100PE100_4000/plots_StatOnly_14STEP_100PE100_4000/Overview_4000.eps}
+	
+
+
+	\cend
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{Timing}
+
+	
+	\li{Plots \& logfiles are produced to monitor the time taken for each job.}
+	\vspace{10pt}
+	\cleft{.5}
+	\vspace{15pt}
+	\includegraphics[width=.9\linewidth]{plots/Limits/StatOnly_14STEP_100PE100_5000/plots_StatOnly_14STEP_100PE100_5000/TIMEreal.eps}
+	
+	\cright{.5}
+	
+	\li{Example - 5 TeV mass point, 100 PE's with no systematics.}
+	\li{Plot shows point for each job (100 jobs) for each SF.}
+	\vspace{10pt}
+	\includegraphics[width=.9\linewidth]{plots/Limits/times5TeV.png}
+	
+	\li{Just ran a test for a workspace with systematics (except MC  stat. uncertainty).}
+	\lii{Jobs took ~1.2 seconds each.}
+	
+	\cend
+
+\end{frame}

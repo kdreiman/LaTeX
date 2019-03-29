@@ -1,0 +1,74 @@
+\begin{frame}
+	\frametitle{Method for Setting $\mu$ Range}
+	
+	\vspace{10pt}
+	\li{A range of 31 \textmu\, values is chosen:}
+	
+	
+	
+	\vspace{5pt}
+	\cleft{.2}
+	\cright{.6}
+	{\scriptsize{
+	
+	
+	for m $\leqslant$ 150 : sfLo = $5e^{-5}$, sfHi = $5e^{-3}$\\
+	\vspace{5pt}
+	for m $\leqslant$ 5000 :
+	
+	\hspace{20pt}    $sfLo = Exp_{asymptotic} - \bigg( 3 \times \frac{Exp_{asymptotic}}{5} \bigg)$ \\
+	\hspace{20pt}    $sfHi = Exp_{asymptotic} + \bigg( 31 \times \frac{Exp_{asymptotic}}{5} \bigg)$\\
+  	\vspace{5pt}
+	for m $>$ 5000: 
+	
+	
+	\hspace{20pt}    $sfLo = Exp_{asymptotic} - \bigg( 2 \times \frac{Exp_{asymptotic}}{4} \bigg)$ \\
+    \hspace{20pt}   $sfHi = Exp_{asymptotic} + \bigg( 34 \times \frac{Exp_{asymptotic}}{4} \bigg)$\\
+   
+	$sfStep = \frac{sfHi-sfLo}{30}$
+	
+	}}
+	
+	\cright{.2}
+	\cend
+
+	\vspace{5pt}
+	\li{The expected value is either extracted directly from the asymptotics curve or by extrapolating a fit for asymptotics up to 2.5 TeV.}
+	
+\end{frame}
+
+
+
+\begin{frame}
+	\frametitle{Method For Setting $\mu$ Range}
+	
+	\cleft{.5}
+		\begin{center}
+		$\zprime \rightarrow ee$
+		\includegraphics[width=\linewidth]{plots/Extrap_Zee.eps}
+		\end{center}
+	\cright{.5}
+		\begin{center}
+		$\zprime \rightarrow \mu\mu$
+		\includegraphics[width=\linewidth]{plots/Extrap_Zmm.eps}
+		\end{center}
+	\cend
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{Method For Setting $\mu$ Range}
+	
+	\cleft{.5}
+		\begin{center}
+		$\wprime\, \rightarrow e\nu$
+		\includegraphics[width=\linewidth]{plots/Extrap_Wenu.eps}
+		\end{center}
+	\cright{.5}
+		\begin{center}
+		$\wprime\, \rightarrow \mu\nu$
+		\includegraphics[width=\linewidth]{plots/Extrap_Wmnu.eps}
+		\end{center}
+	\cend
+
+\end{frame}

@@ -1,0 +1,95 @@
+%%%%%%%%%%%%%%%%%%
+%%%%%%%% Limit plot comparison
+%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+	\frametitle{Comparison of Limits}
+	
+	\li{Comparison of observed and expected limits from RooStats and BAT.}
+	
+	\cleft{.48}
+	
+	\begin{tikzpicture}
+            	\node[anchor=south west,inner sep=0] (image) at (0,0) {\includegraphics[width=.9\linewidth]{plots/Limit_Asymptot_Syst_ObsRatio_040517_MCSTAT_25err_1e-6_noPDF.eps} };
+            	
+            	\begin{scope}[x={(image.south east)},y={(image.north west)}]
+            	
+            	\node at (.55,.8) [preaction={fill, ATLASBlue}, font={\small\bfseries}, text=white] {Observed};
+            	
+        		\end{scope}
+        	\end{tikzpicture}	
+        	
+	
+	\cright{.48}
+	
+	
+	
+	\begin{tikzpicture}
+            	\node[anchor=south west,inner sep=0] (image) at (0,0) {\includegraphics[width=.9\linewidth]{plots/Limit_Asymptot_Syst_ExpRatio_040517_MCSTAT_25err_1e-6_noPDF.eps} };
+            	
+            	\begin{scope}[x={(image.south east)},y={(image.north west)}]
+            	
+            	\node at (.55,.8) [preaction={fill, ATLASBlue}, font={\small\bfseries}, text=white] {Expected};
+            	
+        		\end{scope}
+        	\end{tikzpicture}	
+        	
+	
+	\cend
+	
+	\li {Similar features are exhibited by the two results, e.g. 1 TeV peak.}
+	\li {In both cases, RooStats gives a \textasciitilde 50\% lower result (stronger mass limit).}
+	
+
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{Comparison of pulls}	
+	\vspace{10pt}
+	\li {Comparison of pulls from RooStats and BAT. }
+	
+	\vspace{10pt}
+	%\begin{center}
+	\cleft{.49}
+	
+	\begin{tikzpicture}
+            	\node[anchor=south west,inner sep=0] (image) at (0,0) {\includegraphics[width=.9\linewidth]{plots/Wprime_pulls_and_rankings/{NP_all_bgOnly.1000}.eps} };
+            	
+            	\begin{scope}[x={(image.south east)},y={(image.north west)}]
+            	
+            	\node at (.79,.9) [preaction={fill, ATLASBlue}, font={\small\bfseries}, text=white] {RooStats};
+            	
+        		\end{scope}
+        	\end{tikzpicture}		
+	
+	
+	{\small Black - Asimov datasets.\\
+	Red - Fit to signal region.}
+	
+	\cright{.49}
+	
+	
+	\begin{tikzpicture}
+            	\node[anchor=south west,inner sep=0] (image) at (0,0) {\includegraphics[width=.8\linewidth]{plots/BCMultiTemplateFitter_parameters67_run102_e_Sys.eps} };
+            	
+            	\begin{scope}[x={(image.south east)},y={(image.north west)}]
+            	
+            	\node at (.81,.89) [preaction={fill, ATLASBlue}, font={\small\bfseries}, text=white] {BAT};
+            	
+        		\end{scope}
+        	\end{tikzpicture}	
+	
+	\cend
+	
+	\li {Some differences here which need to be investigated.}
+	
+\end{frame}	
+	
+	
+	
+	
+	
+	
+	
+	

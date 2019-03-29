@@ -1,0 +1,37 @@
+\begin{frame}
+	\frametitle{Method \& Plans}
+	
+		\li {Made a start on setting Frequentist \wprime\, limits using RooStats \href{https://twiki.cern.ch/twiki/pub/AtlasProtected/StatisticsTools/Frequentist_Limit_Recommendation.pdf}{\color{ATLASBlue}{\underline{(documentation)}}}.}
+			\lii {Using the \href{https://svnweb.cern.ch/trac/atlasphys-hsg5/browser/Physics/Higgs/HSG5/Limits/InputPreparation/WSMaker?order=name}{\color{ATLASBlue}{\underline{WSMaker}}} package used by multiple searches ($VH$, $H \rightarrow bb$, $HH \rightarrow bb\tau\tau$).}
+			
+		\li {Asymptotic limits have been produced for the electron channel for the \wprime\, search.}
+			\lii {Using this channel to perform tests and compare with BAT output.}
+			\lii {Versatile setup - can add muon channel for \wprime and electron/muon limits for \zprime.}
+			\lii {Also plan to construct PE limits.}
+			
+		\li {The limits shown were produced in \textasciitilde {\color{red}40 minutes}.}
+		\lii {Run locally on 6 cores - further parallelisation is possible.}
+		
+		
+		\li {This is a work in progress - still scrutinising output and making improvements.}
+		%\lii {Renamed \& re-arranged histograms, converted systematic plots to shifted distributions and converted to equidistant bins.}
+
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{Method \& Plans}
+	
+	\cleft{.5}
+	\vspace{30pt}
+	\li {Using the same inputs as the BAT limits (Moriond) for direct comparison.}
+	\vspace{30pt}
+	\li {Data, summed backgrounds, 118 signal templates, background \& signal systematics.}
+		
+	\cright{.5}
+	\begin{center}
+		\includegraphics[height=.8\textheight]{plots/Wprime_hist_mt_elec}
+	
+		\end{center}
+	\cend
+\end{frame}

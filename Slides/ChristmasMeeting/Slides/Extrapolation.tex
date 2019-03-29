@@ -1,0 +1,89 @@
+\begin{frame}
+	\frametitle{Background Extrapolation}
+	
+	\li{Insufficient statistics at high $m_{T}$ for \underline{inclusive} top ($t\bar{t} $ \& single top) and diboson samples.}
+	\li{Extrapolate fits using two functions:}	
+	\begin{center}\makebox[.7\textwidth][c]{%
+	\begin{minipage}{.2\textwidth}
+		\begin{equation*}
+  		  \frac{dN}{dm_{T}} = am_{T}^{b + c log(m_{T})}
+ 		 \end{equation*}
+	\end{minipage}\hfill
+	\begin{minipage}{.2\textwidth}
+		\begin{equation*}
+ 			\frac{dN}{dm_{T}} = \frac{a}{ \big(m_{T} + b\big)^{c}}
+  		\end{equation*}
+	\end{minipage}
+	} \end{center}
+
+
+\li{Systematics variations: vary start and end point for range of both fit functions.}
+\lii{Central value: best $\frac{\chi^{2}}{N_{d.o.f}}$.}
+\lii{Uncertainty: Envelope of all fits.}
+\lii{Replace MC results with fits above chosen stitching point.}
+
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{Background Extrapolation}
+	
+	\cleft{.5}
+	\vspace{20pt}
+	\li{For QCD - select fits which satisfy:}
+	
+	\begin{equation*}
+		\frac{1}{N_{bins}}\sum_{b>b_{s}}^{N_{b}^{MM} \neq 0} \frac{\big( N_{b}^{MM} - N_{b}^{fit} \big)^{2}}{\sigma_{b}^{2}} < 1.5
+	\end{equation*}
+	\li{Central value: fit with minimal value.}
+	
+	\cright{.5}
+	\begin{center}
+	
+	\begin{tikzpicture}
+            	\node[anchor=south west,inner sep=0] (image) at (0,0) {\includegraphics[width=.65\linewidth]{plots/FittedBG/FitSummaryExtrapolation_h_QCD_electron_mt_elec_QCD.eps} };
+            	
+            	\begin{scope}[x={(image.south east)},y={(image.north west)}]
+            	
+            	\node at (.78,.84) [preaction={fill, ATLASBlue}, font={\tiny\bfseries}, text=white] {QCD};
+            	
+        		\end{scope}
+    \end{tikzpicture}	
+		
+	\end{center}
+	\cend
+	\vspace{-10pt}
+	\cleft{.5}
+	
+	\begin{center}
+	
+	\begin{tikzpicture}
+            	\node[anchor=south west,inner sep=0] (image) at (0,0) {\includegraphics[width=.65\linewidth]{plots/FittedBG/FitSummaryExtrapolation_h_signal_electron_mt_elec_DB.eps} };
+            	
+            	\begin{scope}[x={(image.south east)},y={(image.north west)}]
+            	
+            	\node at (.78,.84) [preaction={fill, ATLASBlue}, font={\tiny\bfseries}, text=white] {Diboson};
+            	
+        		\end{scope}
+    \end{tikzpicture}	
+		
+	\end{center}
+	
+	\cright{.5}
+	
+	\begin{center}
+	
+	\begin{tikzpicture}
+            	\node[anchor=south west,inner sep=0] (image) at (0,0) {\includegraphics[width=.65\linewidth]{plots/FittedBG/FitSummaryExtrapolation_h_signal_electron_mt_elec_TTST.eps} };
+            	
+            	\begin{scope}[x={(image.south east)},y={(image.north west)}]
+            	
+            	\node at (.78,.84) [preaction={fill, ATLASBlue}, font={\tiny\bfseries}, text=white] {Top};
+            	
+        		\end{scope}
+    \end{tikzpicture}	
+		
+	\end{center}
+	
+	\cend
+\end{frame}
