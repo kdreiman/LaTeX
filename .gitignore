@@ -12,3 +12,13 @@ Slides/LAr
 *.dvi
 *.run.xml
 
+./*/*/*.snm
+./*/*/*.aux
+./*/*/*.synctex.gz
+./*/*/*.out
+./*/*/*.nav
+./*/*/*.blg
+./*/*/*.log
+./*/*/*.toc
+./*/*/*.dvi
+./*/*/*.run.xml
