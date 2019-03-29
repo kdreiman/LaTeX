@@ -1,3 +1,14 @@
 Slides/MonoJet
 Slides/LAr
 ./*~
+*.snm
+*.aux
+*.synctex.gz
+*.out
+*.nav
+*.blg
+*.log
+*.toc
+*.dvi
+*.run.xml
+
