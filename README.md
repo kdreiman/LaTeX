@@ -13,3 +13,5 @@ Also makes link to the template beamerthemeTemplate.sty and images which are use
 
 All templates in this repository use xelatex 
 Some use adobe fonts source code pro & source sans pro
+
+When compiling, do so twice in order to get the slide numbers right.
