@@ -12,6 +12,7 @@
 
 \usepackage{textgreek}
 \usepackage{textcomp}
+\usepackage{upgreek}
 
 
 \usepackage[none]{hyphenat}
@@ -34,6 +35,7 @@
 
 \usepackage{multicol}
 \usepackage{color}
+%\usepackage[dvipsnames]{xcolor}
 
 \usepackage{hyperref}
 
@@ -77,8 +79,11 @@
 \def\VPh{\vphantom{\displaystyle\sum_{i=n}^m {i^2}}}
 \def\psBox#1#2{\psframebox[fillcolor=#1,fillstyle=solid]{\VPh\displaystyle#2}}
 
+
+\newcommand{\myfbox}[2]{\fcolorbox{#1}{white}{#2}}
+
 \usepackage{tikz}
-\usetikzlibrary{calc}
+
 \usepackage{mathtools}
 \usepackage{hf-tikz}
 
@@ -113,7 +118,7 @@
 
 \definecolor{highred}{RGB}{255,178,178}
 \definecolor{highgreen}{RGB}{178,255,178}
-
+\definecolor{midgreen}{RGB}{0,153,0}
 \makeatletter
 \def\highlightLighter#1{%
   \fboxrule2pt %
@@ -183,9 +188,9 @@
 
 % basicstyle={\ttfamily\extratiny}
 
-\setmainfont{Source Serif Pro}
-\setsansfont{FreeSans}
-\setmonofont{Source Code Pro}
+\setmainfont{Source Serif Pro}% Semibold}
+\setsansfont{Source Sans Pro}% SemiBold}
+\setmonofont{Source Code Pro}% Semibold}
 
 % set colours
 \setbeamercolor{itemize item}{fg=Black}
@@ -195,8 +200,10 @@
 
 % set fonts
 \setbeamerfont{itemize/enumerate body}{size=\normalsize}
-\setbeamerfont{itemize/enumerate subbody}{size=\small}
-\setbeamerfont{itemize/enumerate subsubbody}{size=\footnotesize}
+\setbeamerfont{itemize/enumerate subbody}{size=\normalsize}
+\setbeamerfont{itemize/enumerate subsubbody}{size=\small}
+
+
 
 % custom itemize bullets points >
 
@@ -299,7 +306,7 @@
     % the title page
 	
 	% background image
-	\node[anchor=south west, inner sep=0cm, opacity=0.2] (/home/ellis/LaTeX/Slides/themeImages/unilogo) at (0cm,0cm)
+	\node[anchor=south west, inner sep=0cm, opacity=0.15] (/home/ellis/LaTeX/Slides/themeImages/unilogo) at (0cm,0cm)
     {\includegraphics[width=\slidewidth]{/home/ellis/LaTeX/Slides/themeImages/bubblechamber_blue.png}};    
     
     % draw the fills
@@ -403,7 +410,7 @@
     \fill[color=TemplateWhite] (-1cm, 0cm) rectangle (\slidewidth, \slideheight+0.1cm);
     
     %background image
-    \node[anchor=south west, inner sep=0cm, opacity=0.2] (/home/ellis/LaTeX/Slides/themeImages/unilogo) at (-1cm,0cm)
+    \node[anchor=south west, inner sep=0cm, opacity=0.15] (/home/ellis/LaTeX/Slides/themeImages/unilogo) at (-1cm,0cm)
     {\includegraphics[width=\slidewidth+1cm]{/home/ellis/LaTeX/Slides/themeImages/bubblechamber_blue.png}}; 
     	
     \fill[color=ATLASBlue] (-1cm, 0.5\slideheight-1cm) rectangle(\slidewidth, 0.5\slideheight+1cm);
@@ -425,6 +432,8 @@
 \def\lii #1 {\begin{itemize}\item[]\begin{itemize}\item #1\end{itemize}\end{itemize}\vspace{-\topsep}}
 \def\liii #1 {\begin{itemize}\item[]\begin{itemize}\item[]\begin{itemize}\item #1\end{itemize}\end{itemize}\end{itemize}\vspace{-\topsep} }
 
+\setbeamercolor{itemize/enumerate subbody}{fg=ATLASBlue}
+\setbeamercolor{itemize/enumerate subsubbody}{fg=ATLASBlue}
 
 
 
@@ -440,3 +449,105 @@
 
 %\setbeamercolor{background canvas}{bg=}
 %\includepdf[pages={2-}]{plots/hadhad/DeficitCheck.pdf}
+
+
+
+
+
+
+
+
+
+
+
+
+%\usepackage{pst-node, auto-pst-pdf}
+%\usepackage{rotating}
+
+%\usetikzlibrary{fit}
+% boxes (main text area)
+\setbeamercolor*{block body}{bg=ATLASBlue_light,fg=white}
+\setbeamerfont{block body}{size=\scriptsize,series=\bf}
+%tintedbubble.png
+% box headers
+\setbeamercolor*{block title}{fg=white,bg=ATLASBlue}
+\setbeamerfont{block title}{size=\Large,series=\bf}
+\setbeamercolor{upper separation line head}{fg=ATLASBlue}
+\addtobeamertemplate{block begin}{\setlength\abovedisplayskip{0pt}}
+
+
+\setbeamertemplate{block begin}{
+  \vskip.75ex
+  %\begin{beamercolorbox}[ht=3.5ex,dp=0.5ex,center,leftskip=-1em,colsep*=.75ex]{block title}%
+   % \usebeamerfont*{block title}%
+   % {\phantom{Gg}\insertblocktitle}% phantom because of baseline problem
+  %\end{beamercolorbox}%
+  {\ifbeamercolorempty[bg]{block body}{}{\nointerlineskip\vskip-0.2pt}}%
+  \usebeamerfont{block body}%
+  \begin{beamercolorbox}[leftskip=3pt,colsep*=.75ex,sep=-4pt,vmode]{block body}%
+    \ifbeamercolorempty[bg]{block body}{\vskip-3pt}{\vskip-1pt}\vbox{}%
+  }
+  \setbeamertemplate{block end}{
+  \end{beamercolorbox}
+}
+
+
+\newcommand*\rot{\rotatebox{90}}
+\newcommand*\OK{\ding{51}}
+
+\newcommand{\mcrot}[4]{\multicolumn{#1}{#2}{\rlap{\rotatebox{#3}{#4}~}}} 
+
+\newcommand*{\twoelementtable}[3][l]%
+{%  
+    \renewcommand{\arraystretch}{0.8}%
+    \begin{tabular}[t]{@{}#1@{}}%
+        #2\tabularnewline
+        #3%
+    \end{tabular}%
+}
+
+
+\usetikzlibrary{patterns}
+\newcommand\mmybox[2][fill=white, pattern=crosshatch, pattern color=gray!30]{%
+    \tikz[baseline]\node[%
+        inner ysep=0pt, 
+        inner xsep=2pt, 
+        anchor=text, 
+        rectangle, 
+        %rounded corners=1mm,
+        #1] {\strut#2};%
+}
+
+\usepackage{pgf-pie,etoolbox}
+
+\makeatletter
+\patchcmd\pgfpie@slice
+  {node {\scalefont{#3}\beforenumber#3\afternumber}}
+  {node[/every only number node/.try] {\scalefont{#3}\beforenumber#3\afternumber}}{}{}
+\makeatother
+
+\usetikzlibrary{decorations.pathreplacing}
+
+\pgfdeclaremetadecoration{raisedbrace}{initial}{%
+\state{initial}[width=\pgfmetadecoratedpathlength]{%
+  \decoration{brace}%
+  \pgfsetdecorationsegmenttransformation{%
+      \pgftransformyshift{\pgfmetadecorationsegmentamplitude}%
+  }
+  \beforedecoration{
+    \pgfpathmoveto{\pgfpointmetadecoratedpathfirst}
+    \pgfpathlineto{\pgfpointadd{%
+      \pgfpointmetadecoratedpathfirst%
+      }{%
+      \pgfpointpolar{\pgfdecoratedangle+90}{\pgfmetadecorationsegmentamplitude}%
+      }%
+    }%
+  }%
+  \afterdecoration{%
+    \pgfpathlineto{\pgfpointmetadecoratedpathlast}%
+    \pgfusepath{stroke}
+  }
+}
+}
+
+\usetikzlibrary{tikzmark}
