@@ -108,9 +108,14 @@
 \definecolor{ATLASBlue_light}{RGB}{84,166,211}
 \definecolor{ATLASBlue_lighter}{RGB}{206,230,242}
 \definecolor{ATLASBlue_lightest}{RGB}{243,249,252}
+\definecolor{ATLASYellow}{RGB}{239,218,78}
+\definecolor{ATLASPurple}{RGB}{86,86,215}
+\definecolor{ATLASPink}{RGB}{211,81,255}
+\definecolor{ATLASGreen}{RGB}{93,190,93}
+\definecolor{ATLASOrange}{RGB}{255,173,53}
+\definecolor{ATLASTurquoise}{RGB}{54,189,189}
 \definecolor{UniBlue}{RGB}{8,58,130}
 \definecolor{Black}{RGB}{0,0,0}
-\definecolor{TemplateBlack}{RGB}{43,40,40}
 \definecolor{TemplateBlue}{RGB}{22,190,207}
 \definecolor{TemplateWhite}{RGB}{255,255,255}
 \definecolor{TemplateGrey}{RGB}{107,110,108}
@@ -119,6 +124,10 @@
 \definecolor{highred}{RGB}{255,178,178}
 \definecolor{highgreen}{RGB}{178,255,178}
 \definecolor{midgreen}{RGB}{0,153,0}
+
+\definecolor{pastelgreen}{RGB}{168, 255, 181}
+\definecolor{pastelred}{RGB}{249, 187, 187}
+
 \makeatletter
 \def\highlightLighter#1{%
   \fboxrule2pt %
@@ -196,7 +205,7 @@
 \setbeamercolor{itemize item}{fg=Black}
 \setbeamercolor{enumerate item}{fg=Black}
 \setbeamercolor{alerted text}{fg=Black}
-\setbeamercolor{section in toc}{fg=TemplateBlack}
+\setbeamercolor{section in toc}{fg=Black}
 
 % set fonts
 \setbeamerfont{itemize/enumerate body}{size=\normalsize}
@@ -328,12 +337,12 @@
     
     
     
-    % \node[above] at(0.5\slidewidth,2.3cm) {\color{TemplateBlack}\tiny by};
-    \node at (0.5\slidewidth,2.25cm) {\color{TemplateBlack}\LARGE\textbf{\insertauthor}};
-    \node at (0.5\slidewidth,1.5cm) {\color{TemplateBlack}\Large\insertinstitute};
+    % \node[above] at(0.5\slidewidth,2.3cm) {\color{Black}\tiny by};
+    \node at (0.5\slidewidth,2.25cm) {\color{Black}\LARGE\textbf{\insertauthor}};
+    \node at (0.5\slidewidth,1.5cm) {\color{Black}\Large\insertinstitute};
     
     % add the date in the corner
-    \node[anchor=south west] at(0,0) {\color{TemplateBlack}\scriptsize\insertdate};
+    \node[anchor=south west] at(0,0) {\color{Black}\scriptsize\insertdate};
 
     
     %{\includegraphics[height=3.4cm]{/home/ellis/LaTeX/Slides/themeImages/EM_ec_blue.png}};
@@ -551,3 +560,23 @@
 }
 
 \usetikzlibrary{tikzmark}
+
+
+
+% Nice diagrams with jets
+
+\tikzset{
+  pics/jet/.style n args={3}{
+    % default rotation: 0 degrees (jet progressing to right)
+    code={
+      \draw [fill=#1!30, thick,join=round](0, 0) -- (#2, -#3) -- (#2, #3) --cycle;
+      \draw [fill=#1!20, thick](#2, 0) ellipse (#3/3 and #3);
+      \draw [thick, ->, >=latex, fill=#1!90](0, 0)--(#2+#3, 0);
+       \draw [thick, ->, >=latex, fill=#1!90](0, 0)--(#2+#3-0.1,{(#3-0.1)/2} );
+      \draw [thick, ->, >=latex, fill=#1!90](0, 0)--(#2+#3-0.1, {-(#3-0.1)/2});
+      \draw [thick, ->, >=latex, fill=#1!90](0, 0)--(#2+#3-0.2, #3-0.1);
+      \draw [thick, ->, >=latex, fill=#1!90](0, 0)--(#2+#3-0.2,{-(#3-0.1)});
+      
+    }
+  }
+}
