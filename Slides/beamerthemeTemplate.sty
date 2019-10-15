@@ -7,6 +7,11 @@
   \luatexsuppressfontnotfounderror
 \fi
 %\usepackage[T1]{fontenc}
+
+% accents
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
 \usepackage{tikz}
 \usetikzlibrary{calc}
 
@@ -58,6 +63,11 @@
 % line spacing
 %\usepackage{setspace}
 
+
+% list indent
+\setlength{\leftmargini}{0.5cm}
+\setlength{\leftmarginii}{0.5cm}
+\setlength{\leftmarginiii}{0.5cm}
 
 \lstset{ breakatwhitespace,
   language=C++,
@@ -162,6 +172,40 @@
 \makeatother
 
 
+\newsavebox{\ximagebox}
+\newlength{\ximageheight}
+\newsavebox{\xglyphbox}
+\newlength{\xglyphheight}
+\newcommand{\xbox}[1]%
+   {\savebox{\ximagebox}{#1}%
+    \settoheight{\ximageheight}{\usebox{\ximagebox}}%
+    \savebox{\xglyphbox}{\char32}%
+    \settoheight{\xglyphheight}{\usebox{\xglyphbox}}%
+    \raisebox{\ximageheight}[0pt][0pt]{\raisebox{-\xglyphheight}[0pt][0pt]{%
+      \makebox[0pt][l]{\usebox{\xglyphbox}}}}%
+    \usebox{\ximagebox}%
+    \raisebox{0pt}[0pt][0pt]{\makebox[0pt][r]{\usebox{\xglyphbox}}}}
+
+
+\newcommand\elisa[1]{
+ \href{https://atlasop.cern.ch/elisa/display/#1}
+          {\xbox{\includegraphics[width=15pt]{themeImages/ELISA.png}}}%
+}
+\newcommand\JIRA[1]{
+ \href{https://its.cern.ch/jira/browse/#1}
+          {\xbox{\includegraphics[width=15pt]{themeImages/JIRA.png}}\hspace{-4pt}{\small\color{ATLASBlue}\underline{#1}}}%
+}
+\newcommand\formattedref[2]{
+ \href{#1}
+          {{\color{ATLASBlue}\underline{#2}}}%
+}
+
+
+\newcommand\imglink[3]{
+ \href{#1}
+          {\xbox{\includegraphics[width=#2]{#3}}}%
+}
+
 
 \newcommand\abs[1]{\left|#1\right|}
 
@@ -189,6 +233,17 @@
 \newcommand\HUGE{\@setfontsize\Huge{35pt}{35pt}} 
 
 \makeatother
+
+% checklist
+\usepackage{pifont}
+\newcommand{\cmark}{\ding{51}}%
+\newcommand{\xmark}{\ding{55}}%
+\newcommand{\donemark}{\rlap{$\square$}{\raisebox{2pt}{\large\hspace{1pt}\cmark}}%
+    \hspace{-2.5pt}}
+\newcommand{\notdonemark}{\rlap{$\square$}{\large\hspace{1pt}\xmark}}
+\def\done #1 {\begin{itemize}\item[\donemark] #1\end{itemize}\vspace{-\topsep}}
+\def\notdone #1 {\begin{itemize}\item[\notdonemark] #1\end{itemize}\vspace{-\topsep}}
+\def\reason #1 {\vspace{-5pt}\begin{itemize}\item[]\begin{itemize}{\setlength\itemindent{-10pt} \item[]} #1\end{itemize}\end{itemize}\vspace{-\topsep}}
 
 % margins
 \setbeamersize{text margin left=0.5cm}
@@ -322,7 +377,7 @@
     \fill[color=ATLASBlue] (0, 3.5cm) rectangle(\slidewidth,\slideheight);
     
     % draw the actual text
-    \node[anchor=south,text width=\slidewidth-1cm,inner xsep=0.5cm] at (0.5\slidewidth,3.6cm) {\color{TemplateWhite}\Huge\textbf{\inserttitle}};
+    \node[anchor=south,text width=\slidewidth-1cm,inner xsep=0.5cm] at (0.5\slidewidth,3.6cm) {\color{TemplateWhite}\HUGE\textbf{\inserttitle}};
     \node[anchor=north east,text width=\slidewidth-1cm,align=right] at (\slidewidth-0.4cm,3.6cm) {\color{ATLASBlue}\tiny\insertsubtitle};
     
     \node[anchor=north east, inner sep=0cm] (/home/ellis/LaTeX/Slides/themeImages/unilogo) at (0.965\slidewidth,0.955\slideheight)
@@ -564,19 +619,19 @@
 
 
 % Nice diagrams with jets
-
 \tikzset{
-  pics/jet/.style n args={3}{
-    % default rotation: 0 degrees (jet progressing to right)
-    code={
-      \draw [fill=#1!30, thick,join=round](0, 0) -- (#2, -#3) -- (#2, #3) --cycle;
-      \draw [fill=#1!20, thick](#2, 0) ellipse (#3/3 and #3);
-      \draw [thick, ->, >=latex, fill=#1!90](0, 0)--(#2+#3, 0);
-       \draw [thick, ->, >=latex, fill=#1!90](0, 0)--(#2+#3-0.1,{(#3-0.1)/2} );
-      \draw [thick, ->, >=latex, fill=#1!90](0, 0)--(#2+#3-0.1, {-(#3-0.1)/2});
-      \draw [thick, ->, >=latex, fill=#1!90](0, 0)--(#2+#3-0.2, #3-0.1);
-      \draw [thick, ->, >=latex, fill=#1!90](0, 0)--(#2+#3-0.2,{-(#3-0.1)});
-      
+ 	  pics/jet/.style n args={3}{
+        % default rotation: 0 degrees (jet progressing to right)
+        code={
+            \draw [fill=#1!30, thick,join=round](0, 0) -- (#2, -#3) -- (#2, #3) --cycle;
+            \draw [fill=#1!20, thick](#2, 0) ellipse (#3/3 and #3);
+            \draw [thick, ->, >=latex, color=black, fill=#1!90](0, 0)--(#2+#3, 0);
+            
+            \draw [thick, ->, >=latex, color=black, fill=#1!90](0, 0)--(#2+#3-0.1,{(#3-0.1)/2} );
+            \draw [thick, ->, >=latex, color=black, fill=#1!90](0, 0)--(#2+#3-0.1, {-(#3-0.1)/2});
+           \draw [thick, ->, >=latex, color=black, fill=#1!90](0, 0)--(#2+#3-0.2, #3-0.1);
+      	     \draw [thick, ->, >=latex, color=black, fill=#1!90](0, 0)--(#2+#3-0.2,{-(#3-0.1)});
+          
+        }
     }
-  }
 }
