@@ -8,6 +8,8 @@
 \fi
 %\usepackage[T1]{fontenc}
 
+\newcommand{\emailaddr}{ellis.kay@cern.ch}
+
 % accents
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -330,12 +332,11 @@
 \newdimen\slideheight % auxiliary dimension
 
 \newlength{\msize}
-\setlength{\msize}{\dimexpr(\paperwidth-.75cm)\relax}
-
-
-
+\setlength{\msize}{\dimexpr(\paperwidth-0.75cm)\relax}
+\newlength{\psize}
+\setlength{\psize}{\dimexpr(\paperwidth-2.75cm)\relax}
 % make the progress bar go across the screen
-\progressbar@pbwidth=\msize
+\progressbar@pbwidth=\psize
 %\progressbar@pbwidth=\the\paperwidth
 \slidewidth=\the\paperwidth
 \slideheight=\the\paperheight
@@ -410,7 +411,6 @@
     \fill[color=ATLASBlue] (0, \slideheight-1.2cm) rectangle(\slidewidth,\slideheight);
     
     % swap the comment on these to add section titles to slide titles
-    % \node[anchor=north,text width=11.8cm,inner xsep=0.5cm,inner ysep=0.25cm] at (6.4cm,9.6cm) {\color{TemplateWhite}\Large\textbf{\insertsectionhead: \insertframetitle}};
     \node[anchor=north,text width=\slidewidth-1cm,inner xsep=0.5cm,inner ysep=0.31cm, outer xsep=3.3cm] at (0.5\slidewidth,\slideheight) {\color{TemplateWhite}\LARGE\textbf{\insertframetitle}};
     
     \node[anchor=north east, inner sep=0cm] (/home/ellis/LaTeX/Slides/themeImages/unilogo) at (0.99\slidewidth,0.98\slideheight)
@@ -422,11 +422,15 @@
     \ifnum \value{showProgressBar}>0\relax%
     % the the progress bar icon in the middle of the screen
     \draw[fill=ATLASBlue,draw=none] (0cm,0cm) rectangle(\slidewidth,0.27cm);
-    \draw[fill=ATLASBlue_lighter,draw=none] (0cm,0cm) rectangle(\msize,0.25cm);
-    % test
-    %\draw[fill=ATLASBlue_light,draw=none] (\msize,0cm) rectangle(.8cm,0.25cm);
-    \draw[fill=ATLASBlue,draw=none] (0cm,0cm) rectangle(\progressbar@tmpdim,0.25cm);
+	
+	\node[anchor=south east] at(\slidewidth,-0.1cm) {\color{TemplateWhite}\tiny\insertframenumber/\inserttotalframenumber};
+	%\draw[fill=ATLASBlue_lighter,draw=none] (0cm,0cm) rectangle(\msize,0.25cm);
+    %\draw[fill=ATLASBlue,draw=none] (0cm,0cm) rectangle(\progressbar@tmpdim,0.25cm);
+    % NEW add email address on each slide
     
+    \draw[fill=ATLASBlue_lighter,draw=none] (2cm,0cm) rectangle(\msize,0.25cm);
+    \draw[fill=ATLASBlue,draw=none] (2cm,0cm) rectangle(\progressbar@tmpdim+2cm,0.25cm);
+    \node[anchor=south west] at(0.1cm,-0.1cm) {\color{TemplateWhite}\tiny \emailaddr};
     % bottom information
     % \node[anchor=south west] at(0cm,0.25cm) {\color{TemplateGrey}\tiny\insertsection};
     % if slide numbers are active
