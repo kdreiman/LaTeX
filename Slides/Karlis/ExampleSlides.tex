@@ -1,0 +1,119 @@
+%!TEX program = xelatex
+\documentclass[table,aspectratio=169]{beamer}
+
+\usetheme{Template}
+
+\title{TEST}
+%\subtitle{test}
+\author{K\={a}rlis Dreimanis}
+\institute{test}
+% change this to \color{black}\Large to make it look like second institute line
+\addtobeamertemplate{title page}{\color{gray}\vspace{220pt}\begin{center}
+oi oi oi oi oi oi oi oi\end{center}}
+
+\date{karlis.dreimanis@cern.ch}
+
+\setcounter{showSlideNumbers}{1}
+
+\begin{document}
+	\setcounter{showProgressBar}{0}
+	\setcounter{showSlideNumbers}{0}
+	
+	\frame{\titlepage}
+	
+	\setcounter{framenumber}{0}
+	\setcounter{showProgressBar}{1}
+	\setcounter{showSlideNumbers}{1}
+	
+	%%%% Slides Start Here
+	
+	
+	\begin{frame}
+          \frametitle{Columns \& Bullets}
+          \cleft{.25}
+          \li{Column 1}
+          \lii{a}
+          \liii{b}
+          
+          \cright{.25}
+          \li{Column 2}
+          \lii{a}
+          \liii{b}
+            
+          \cright{.25}
+          \li{Column 3}
+          \lii{a}
+          \liii{b}
+            
+          \cright{.25}
+          \li{Column 4}
+          \lii{a}
+          \liii{b}
+          
+          \cend
+          
+        \end{frame}
+        
+        \begin{frame}
+        
+      
+        \end{frame}
+
+	\section{test}
+	\addtocounter{framenumber}{-1}
+	
+	\begin{frame}
+	\frametitle{oi}\vspace{15pt}
+	oi oi oi\\
+	
+	\end{frame}
+	
+	\begin{frame}
+	
+	\end{frame}
+	
+	\begin{frame}
+	
+	\end{frame}
+	
+	\begin{frame}
+	
+	\end{frame}
+	
+	\begin{frame}
+	
+	\end{frame}
+%	
+%	\begin{frame}
+%          \frametitle{Table}
+%          \centering
+%          {\scriptsize
+%          
+%          \input{exampleTable}
+%          }
+%          
+%    \end{frame}
+    
+   %%%% Backup
+
+   \beginbackup
+	\setcounter{showSlideTotal}{0}
+	\section{Backup}
+	\appendix
+	\makeatletter
+	\beamer@tocsectionnumber=0\relax
+	\makeatother
+	\setcounter{section}{0}
+	
+	\begin{frame}
+	
+	\end{frame}
+	
+	\begin{frame}
+	
+	\end{frame}
+	\backupend
+
+
+
+\end{document}
