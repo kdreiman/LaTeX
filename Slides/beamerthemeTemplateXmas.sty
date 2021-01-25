@@ -24,6 +24,8 @@
 \usepackage{textcomp}
 \usepackage{upgreek}
 
+\usepackage{adjustbox}
+
 %\usepackage{smartdiagram}
 %\usesmartdiagramlibrary{additions}
 
@@ -212,9 +214,9 @@
  \href{https://its.cern.ch/jira/browse/#1}
           {\xbox{\includegraphics[width=15pt]{themeImages/JIRA.png}}\hspace{-4pt}{\small\color{ATLASBlue}\underline{#1}}}%
 }
-\newcommand\twiki[1]{
+\newcommand\twiki[2]{
  \href{#1}
-          {\xbox{\includegraphics[width=10pt]{themeImages/Twiki.png}}}%
+          {\xbox{\includegraphics[width=10pt]{themeImages/Twiki.png}}\hspace*{1pt}{\small\color{ATLASBlue}\underline{#2}}}%
 }
 \newcommand\LArtwiki[1]{
  \href{https://atlasop.cern.ch/twiki/bin/view/LAr/#1}
@@ -303,9 +305,9 @@
 
 % custom itemize bullets points >
 
-\defbeamertemplate{itemize item}{image}{\small\includegraphics[height=1.6ex]{/home/ellis/LaTeX/Slides/themeImages/bullet.png}}
-\defbeamertemplate{itemize subitem}{image}{\scriptsize\includegraphics[height=1.6ex]{/home/ellis/LaTeX/Slides/themeImages/bullet.png}}
-\defbeamertemplate{itemize subsubitem}{image}{\tiny\includegraphics[height=1.6ex]{/home/ellis/LaTeX/Slides/themeImages/bullet.png}}
+\defbeamertemplate{itemize item}{image}{\small\includegraphics[height=1.6ex]{/home/ellis/LaTeX/Slides/themeImages/Christmas/bauble2.png}}
+\defbeamertemplate{itemize subitem}{image}{\scriptsize\includegraphics[height=1.6ex]{/home/ellis/LaTeX/Slides/themeImages/Christmas/bauble2.png}}
+\defbeamertemplate{itemize subsubitem}{image}{\tiny\includegraphics[height=1.6ex]{/home/ellis/LaTeX/Slides/themeImages/Christmas/bauble2.png}}
 
 \setbeamertemplate{itemize item}[image]
 \setbeamertemplate{itemize subitem}[image]
@@ -401,28 +403,38 @@
     % the title page
 	
 	% background image
-	\node[anchor=south west, inner sep=0cm, opacity=0.15] (/home/ellis/LaTeX/Slides/themeImages/unilogo) at (0cm,0cm)
-    {\includegraphics[width=\slidewidth]{/home/ellis/LaTeX/Slides/themeImages/bubblechamber_blue.png}};    
-    
-    % draw the fills
-    \fill[color=ATLASBlue] (0, 3.5cm) rectangle(\slidewidth,\slideheight);
-    
+    %\node[anchor=south west, inner sep=0cm, opacity=0.15] (/home/ellis/LaTeX/Slides/themeImages/unilogo) at (0cm,0cm)
+    %{\includegraphics[width=\slidewidth]{/home/ellis/LaTeX/Slides/themeImages/bubblechamber_blue.png}};
+    % CHRISTMAS
+    \node[anchor=south west, inner sep=0cm, opacity=0.4] (/home/ellis/LaTeX/Slides/themeImages/unilogo) at (0cm,0cm)
+         {\includegraphics[width=3.4cm]{/home/ellis/LaTeX/Slides/themeImages/Christmas/Snowflake.png}};    
+         
+         % draw the fills
+         \fill[color=ATLASBlue] (0, 3.5cm) rectangle(\slidewidth,\slideheight);
+         
     % draw the actual text
     \node[anchor=south,text width=\slidewidth-1cm,inner xsep=0.5cm] at (0.5\slidewidth,3.6cm) {\color{TemplateWhite}\HUGE\textbf{\inserttitle}};
     \node[anchor=north east,text width=\slidewidth-1cm,align=right] at (\slidewidth-0.4cm,3.6cm) {\color{ATLASBlue}\tiny\insertsubtitle};
     
     \node[anchor=north east, inner sep=0cm] (/home/ellis/LaTeX/Slides/themeImages/unilogo) at (0.965\slidewidth,0.955\slideheight)
-   % {\includegraphics[width=5cm]{/home/ellis/LaTeX/Slides/themeImages/UVic-Logo-White.png}};
-    {\includegraphics[width=5cm]{/home/ellis/LaTeX/Slides/themeImages/UVic_hst_rev.eps}};
+    % {\includegraphics[width=5cm]{/home/ellis/LaTeX/Slides/themeImages/UVic-Logo-White.png}};
+         {\includegraphics[width=5cm]{/home/ellis/LaTeX/Slides/themeImages/UVic_hst_rev.eps}};
     
     
    % \node[anchor=north west, inner sep=0cm] (/home/ellis/LaTeX/Slides/themeImages/unilogo) at (0.0\slidewidth,1.03\slideheight)
     %{\includegraphics[width=5cm]{/home/ellis/LaTeX/Slides/themeImages/ATLAS-Logo-Blue-invert-RGB.png}};
-    \node[anchor=north west, inner sep=0cm] (/home/ellis/LaTeX/Slides/themeImages/unilogo) at (0.03\slidewidth,0.97\slideheight)
-    {\includegraphics[width=4.5cm]{/home/ellis/LaTeX/Slides/themeImages/ATLAS-transparent.png}};
+         \node[anchor=north west, inner sep=0cm] (/home/ellis/LaTeX/Slides/themeImages/unilogo) at (0.03\slidewidth,0.97\slideheight)
+         {\includegraphics[width=4.5cm]{/home/ellis/LaTeX/Slides/themeImages/ATLAS-transparent.png}};
     
-    
-    
+         % CHRISTMAS
+         \node[anchor=north west, inner sep=0cm] (themeImages/unilogo) at (0.046\slidewidth,0.9\slideheight)
+         {\includegraphics[width=0.22cm]{themeImages/Christmas/santahat3.png}};
+         \node[anchor=north west, inner sep=0.18cm] (themeImages/unilogo) at (0,0.45\slideheight)
+              {\includegraphics[width=\slidewidth]{themeImages/Christmas/Lights3.png}};
+
+
+
+         
     % \node[above] at(0.5\slidewidth,2.3cm) {\color{Black}\tiny by};
     \node at (0.5\slidewidth,2.25cm) {\color{Black}\LARGE\textbf{\insertauthor}};
     \node at (0.5\slidewidth,1.5cm) {\color{Black}\Large\insertinstitute};
@@ -443,10 +455,12 @@
     % swap the comment on these to add section titles to slide titles
     \node[anchor=north,text width=\slidewidth-1cm,inner xsep=0.5cm,inner ysep=0.31cm, outer xsep=3.3cm] at (0.5\slidewidth,\slideheight) {\color{TemplateWhite}\LARGE\textbf{\insertframetitle}};
     
-    \node[anchor=north east, inner sep=0cm] (/home/ellis/LaTeX/Slides/themeImages/unilogo) at (0.99\slidewidth,0.98\slideheight)
+    \node[anchor=north east, inner sep=0cm] (/home/ellis/LaTeX/Slides/themeImages/unilogo) at (0.975\slidewidth,0.98\slideheight)
     {\includegraphics[width=.72cm]{/home/ellis/LaTeX/Slides/themeImages/UVic-Logo-White-Small.png}};
 
-        
+        \node[anchor=north east, inner sep=0cm] (themeImages/unilogo) at (0.999\slidewidth,0.96\slideheight)
+    {\includegraphics[width=.07\slidewidth,angle=270]{themeImages/Christmas/holly4.png}};
+
     % if we're showing a progress bar, show it
     % (I disable the progress bar and slide numbers for the "Appendix" slides)
     \ifnum \value{showProgressBar}>0\relax%
@@ -476,6 +490,10 @@
     \node[anchor=south east] at(\slidewidth,-0.1cm) {\color{TemplateWhite}\tiny\insertframenumber};
     \fi
     \fi
+
+    % CHRISTMAS
+    \node[anchor=south west, inner sep=0cm] (themeImages/unilogo) at (0.11\slidewidth,0.0\slideheight)
+    {\includegraphics[width=.03\slidewidth]{themeImages/Christmas/ginger.png}};
     % don't show the progress bar?
     \else
     % section title in the bottom left
@@ -515,6 +533,8 @@
     	
     \fill[color=ATLASBlue] (-1cm, 0.5\slideheight-1cm) rectangle(\slidewidth, 0.5\slideheight+1cm);
     \node[text width=\the\paperwidth-1cm,align=center] at (0.4\slidewidth, 0.5\slideheight) {\color{TemplateWhite}\Huge\textbf{\insertsection}};
+
+    \node[align=center] (themeImages/unilogo) at (0.5\slidewidth,0.4\slideheight){\includegraphics[width=.4\slidewidth]{themeImages/Christmas/wreath.png}};
     
     %\node[align=center] (/home/ellis/LaTeX/Slides/themeImages/unilogo) at (0.8\slidewidth, 0.5\slideheight){\includegraphics[height=1.8cm]{/home/ellis/LaTeX/Slides/themeImages/ATLAS-Logo-Square-Blue-Globe.png}};
   \end{tikzpicture}
