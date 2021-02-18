@@ -8,7 +8,7 @@
 \fi
 %\usepackage[T1]{fontenc}
 
-\newcommand{\emailaddr}{ellis.kay@cern.ch}
+\newcommand{\emailaddr}{karlis.dreimanis@cern.ch}
 
 % accents
 \usepackage[utf8]{inputenc}
@@ -121,6 +121,12 @@
   \enditemize
 }
 % define colours
+\definecolor{RTUGreen}{RGB}{0,85,81}
+\definecolor{RTUGreen_light}{RGB}{77, 136, 133}
+\definecolor{RTUGreen_lighter}{RGB}{200,218,215}
+\definecolor{RTUGreen_lightest}{RGB}{237, 243, 243}
+
+
 \definecolor{UVicBlue}{RGB}{0,41,87}
 \definecolor{TemplateRed}{RGB}{230,37,52}
 \definecolor{ATLASBlue}{RGB}{11,128,192}
@@ -284,9 +290,9 @@
 
 % basicstyle={\ttfamily\extratiny}
 
-\setmainfont{Source Serif Pro}% Semibold}
-\setsansfont{Source Sans Pro}% SemiBold}
-\setmonofont{Source Code Pro}% Semibold}
+\setmainfont{Mark-Regular}% Semibold}
+\setsansfont{Mark-Regular}% SemiBold}
+\setmonofont{GNUTypewriter}% Semibold}
 
 % set colours
 \setbeamercolor{itemize item}{fg=Black}
@@ -303,9 +309,9 @@
 
 % custom itemize bullets points >
 
-\defbeamertemplate{itemize item}{image}{\small\includegraphics[height=1.6ex]{/home/ellis/LaTeX/Slides/themeImages/bullet.png}}
-\defbeamertemplate{itemize subitem}{image}{\scriptsize\includegraphics[height=1.6ex]{/home/ellis/LaTeX/Slides/themeImages/bullet.png}}
-\defbeamertemplate{itemize subsubitem}{image}{\tiny\includegraphics[height=1.6ex]{/home/ellis/LaTeX/Slides/themeImages/bullet.png}}
+\defbeamertemplate{itemize item}{image}{\small\includegraphics[height=1.6ex]{/home/karlis/Work/LaTeX/Slides/themeImages/bullet.png}}
+\defbeamertemplate{itemize subitem}{image}{\scriptsize\includegraphics[height=1.6ex]{/home/karlis/Work/LaTeX/Slides/themeImages/bullet.png}}
+\defbeamertemplate{itemize subsubitem}{image}{\tiny\includegraphics[height=1.6ex]{/home/karlis/Work/LaTeX/Slides/themeImages/bullet.png}}
 
 \setbeamertemplate{itemize item}[image]
 \setbeamertemplate{itemize subitem}[image]
@@ -401,8 +407,8 @@
     % the title page
 	
 	% background image
-	\node[anchor=south west, inner sep=0cm, opacity=0.15] (/home/ellis/LaTeX/Slides/themeImages/unilogo) at (0cm,0cm)
-    {\includegraphics[width=\slidewidth]{/home/ellis/LaTeX/Slides/themeImages/bubblechamber_blue.png}};    
+	\node[anchor=south west, inner sep=0cm, opacity=0.15] (/home/karlis/Work/LaTeX/Slides/themeImages/unilogo) at (0cm,0cm)
+    {\includegraphics[width=\slidewidth]{/home/karlis/Work/LaTeX/Slides/themeImages/bubblechamber_blue.png}};    
     
     % draw the fills
     \fill[color=ATLASBlue] (0, 3.5cm) rectangle(\slidewidth,\slideheight);
@@ -411,15 +417,15 @@
     \node[anchor=south,text width=\slidewidth-1cm,inner xsep=0.5cm] at (0.5\slidewidth,3.6cm) {\color{TemplateWhite}\HUGE\textbf{\inserttitle}};
     \node[anchor=north east,text width=\slidewidth-1cm,align=right] at (\slidewidth-0.4cm,3.6cm) {\color{ATLASBlue}\tiny\insertsubtitle};
     
-    \node[anchor=north east, inner sep=0cm] (/home/ellis/LaTeX/Slides/themeImages/unilogo) at (0.965\slidewidth,0.955\slideheight)
-   % {\includegraphics[width=5cm]{/home/ellis/LaTeX/Slides/themeImages/UVic-Logo-White.png}};
-    {\includegraphics[width=5cm]{/home/ellis/LaTeX/Slides/themeImages/UVic_hst_rev.eps}};
+    \node[anchor=north east, inner sep=0cm] (/home/karlis/Work/LaTeX/Slides/themeImages/unilogo) at (0.965\slidewidth,0.955\slideheight)
+   % {\includegraphics[width=5cm]{/home/karlis/Work/LaTeX/Slides/themeImages/UVic-Logo-White.png}};
+    {\includegraphics[width=5cm]{/home/karlis/Work/LaTeX/Slides/themeImages/UVic_hst_rev.eps}};
     
     
-   % \node[anchor=north west, inner sep=0cm] (/home/ellis/LaTeX/Slides/themeImages/unilogo) at (0.0\slidewidth,1.03\slideheight)
-    %{\includegraphics[width=5cm]{/home/ellis/LaTeX/Slides/themeImages/ATLAS-Logo-Blue-invert-RGB.png}};
-    \node[anchor=north west, inner sep=0cm] (/home/ellis/LaTeX/Slides/themeImages/unilogo) at (0.03\slidewidth,0.97\slideheight)
-    {\includegraphics[width=4.5cm]{/home/ellis/LaTeX/Slides/themeImages/ATLAS-transparent.png}};
+   % \node[anchor=north west, inner sep=0cm] (/home/karlis/Work/LaTeX/Slides/themeImages/unilogo) at (0.0\slidewidth,1.03\slideheight)
+    %{\includegraphics[width=5cm]{/home/karlis/Work/LaTeX/Slides/themeImages/ATLAS-Logo-Blue-invert-RGB.png}};
+    \node[anchor=north west, inner sep=0cm] (/home/karlis/Work/LaTeX/Slides/themeImages/unilogo) at (0.03\slidewidth,0.97\slideheight)
+    {\includegraphics[width=4.5cm]{/home/karlis/Work/LaTeX/Slides/themeImages/ATLAS-transparent.png}};
     
     
     
@@ -431,66 +437,55 @@
     \node[anchor=south west] at(0,0) {\color{Black}\scriptsize\insertdate};
 
     
-    %{\includegraphics[height=3.4cm]{/home/ellis/LaTeX/Slides/themeImages/EM_ec_blue.png}};
+    %{\includegraphics[height=3.4cm]{/home/karlis/Work/LaTeX/Slides/themeImages/EM_ec_blue.png}};
 
 
 
     \else
     % NOT the title page
     % title bar
-    \fill[color=ATLASBlue] (0, \slideheight-1.2cm) rectangle(\slidewidth,\slideheight);
-    
-    % swap the comment on these to add section titles to slide titles
-    \node[anchor=north,text width=\slidewidth-1cm,inner xsep=0.5cm,inner ysep=0.31cm, outer xsep=3.3cm] at (0.5\slidewidth,\slideheight) {\color{TemplateWhite}\LARGE\textbf{\insertframetitle}};
-    
-    \node[anchor=north east, inner sep=0cm] (/home/ellis/LaTeX/Slides/themeImages/unilogo) at (0.99\slidewidth,0.98\slideheight)
-    {\includegraphics[width=.72cm]{/home/ellis/LaTeX/Slides/themeImages/UVic-Logo-White-Small.png}};
 
-        
-    % if we're showing a progress bar, show it
-    % (I disable the progress bar and slide numbers for the "Appendix" slides)
-    \ifnum \value{showProgressBar}>0\relax%
-    % the the progress bar icon in the middle of the screen
-    \draw[fill=ATLASBlue,draw=none] (0cm,0cm) rectangle(\slidewidth,0.27cm);
-	
-	\node[anchor=south east] at(\slidewidth,-0.1cm) {\color{TemplateWhite}\tiny\insertframenumber/\inserttotalframenumber};
-	%\draw[fill=ATLASBlue_lighter,draw=none] (0cm,0cm) rectangle(\msize,0.25cm);
-    %\draw[fill=ATLASBlue,draw=none] (0cm,0cm) rectangle(\progressbar@tmpdim,0.25cm);
-    % NEW add email address on each slide
-    
-    \draw[fill=ATLASBlue_lighter,draw=none] (2cm,0cm) rectangle(\msize,0.25cm);
-    \draw[fill=ATLASBlue_light,draw=none] (2cm,0cm) rectangle(\progressbar@tmpdim+2cm,0.25cm);
-    \node[anchor=south west] at(0.1cm,-0.1cm) {\color{TemplateWhite}\tiny \emailaddr};
-    % bottom information
-    % \node[anchor=south west] at(0cm,0.25cm) {\color{TemplateGrey}\tiny\insertsection};
-    % if slide numbers are active
-    \ifnum \value{showSlideNumbers}>0\relax%
-    % if slide totals are active
-    \ifnum \value{showSlideTotal}>0\relax%
-    % draw both slide number and slide total
-    \node[anchor=south east] at(\slidewidth,-0.1cm) {\color{TemplateWhite}\tiny\insertframenumber/\inserttotalframenumber};
-    \else
-    % slide totals aren't active, don't draw them
-    % and make the progress bar dark
-     \draw[fill=ATLASBlue,draw=none] (2cm,0cm) rectangle(\progressbar@tmpdim+2cm,0.25cm);
-    \node[anchor=south east] at(\slidewidth,-0.1cm) {\color{TemplateWhite}\tiny\insertframenumber};
-    \fi
-    \fi
-    % don't show the progress bar?
-    \else
-    % section title in the bottom left
-    \node[anchor=south west] at(0cm,0cm) {\color{TemplateGrey}\tiny\insertsection};
-    % if we're showing slide numbers
-    \ifnum \value{showSlideNumbers}>0\relax%
-    % if slide totals are active
-    \ifnum \value{showSlideTotal}>0\relax%
-    % draw both slide number and slide total
-    \node[anchor=south east] at(\slidewidth,0cm) {\color{TemplateWhite}\tiny\insertframenumber/\inserttotalframenumber};
-    \else
-    % slide totals aren't active, don't draw them
-    \node[anchor=south east] at(\slidewidth,0cm) {\color{TemplateWhite}\tiny\insertframenumber};
-    \fi
-    \fi
+    % TITLE BAR [BODY]
+    \fill[color=RTUGreen] (0, \slideheight-1.0cm) rectangle(\slidewidth,\slideheight);								% BAND
+    \node[anchor=north,text width=\slidewidth-1cm,inner xsep=0.5cm,inner ysep=0.31cm, outer xsep=3.3cm] at (0.5\slidewidth,\slideheight)	% TITLE
+    {\color{TemplateWhite}\LARGE\textbf{\insertframetitle}};											% TITLE
+    \node[anchor=north east, inner sep=0cm] (/home/karlis/Work/LaTeX/Slides/themeImages/unilogo) at (0.99\slidewidth,0.993\slideheight)		% LOGO
+    {\includegraphics[width=1.5cm]{/home/karlis/Work/LaTeX/Slides/themeImages/rtu_logo_white_sans_text.png}};					% LOGO
+
+    % FOOTER BAR [BODY]
+    \ifnum \value{showProgressBar}>0\relax % show progress par only if in the body of the slides;
+    \draw[fill=RTUGreen,draw=none] (0cm,0cm) rectangle(\slidewidth,0.3cm);							% REGULAR BAND;
+    \draw[fill=RTUGreen_lighter,draw=none] (3cm,0cm) rectangle(\msize,0.3cm);							% LIGHTER BAND;
+    \draw[fill=RTUGreen_light,draw=none] (3cm,0cm) rectangle(\progressbar@tmpdim+3cm,0.3cm);					% LIGHT BAND (progress bar);
+    \node[anchor=south east] at(\slidewidth,-0.1cm) {\color{TemplateWhite}\tiny\insertframenumber/\inserttotalframenumber};	% SLIDE NUMBER;
+    \node[anchor=south west] at(0.1cm,-0.1cm) {\color{TemplateWhite}\tiny \emailaddr};						% EMAIL;
+%    \ifnum \value{showSlideNumbers}>0\relax%
+%    % if slide totals are active
+%    \ifnum \value{showSlideTotal}>0\relax%
+%    % draw both slide number and slide total
+%    \node[anchor=south east] at(\slidewidth,-0.1cm) {\color{TemplateWhite}\tiny\insertframenumber/\inserttotalframenumber};
+%    \else
+%    % slide totals aren't active, don't draw them
+%    % and make the progress bar dark
+%     \draw[fill=ATLASBlue,draw=none] (2cm,0cm) rectangle(\progressbar@tmpdim+2cm,0.25cm);
+%    \node[anchor=south east] at(\slidewidth,-0.1cm) {\color{TemplateWhite}\tiny\insertframenumber};
+%    \fi
+%    \fi
+%    % don't show the progress bar?
+%    \else
+%    % section title in the bottom left
+%    \node[anchor=south west] at(0cm,0cm) {\color{TemplateGrey}\tiny\insertsection};
+%    % if we're showing slide numbers
+%    \ifnum \value{showSlideNumbers}>0\relax%
+%    % if slide totals are active
+%    \ifnum \value{showSlideTotal}>0\relax%
+%    % draw both slide number and slide total
+%    \node[anchor=south east] at(\slidewidth,0cm) {\color{TemplateWhite}\tiny\insertframenumber/\inserttotalframenumber};
+%    \else
+%    % slide totals aren't active, don't draw them
+%    \node[anchor=south east] at(\slidewidth,0cm) {\color{TemplateWhite}\tiny\insertframenumber};
+%    \fi
+%    \fi
     \fi
     \fi
   \end{tikzpicture}
@@ -510,13 +505,13 @@
     \fill[color=TemplateWhite] (-1cm, 0cm) rectangle (\slidewidth, \slideheight+0.1cm);
     
     %background image
-    \node[anchor=south west, inner sep=0cm, opacity=0.15] (/home/ellis/LaTeX/Slides/themeImages/unilogo) at (-1cm,0cm)
-    {\includegraphics[width=\slidewidth+1cm]{/home/ellis/LaTeX/Slides/themeImages/bubblechamber_blue.png}}; 
+    \node[anchor=south west, inner sep=0cm, opacity=0.15] (/home/karlis/Work/LaTeX/Slides/themeImages/unilogo) at (-1cm,0cm)
+    {\includegraphics[width=\slidewidth+1cm]{/home/karlis/Work/LaTeX/Slides/themeImages/bubblechamber_blue.png}}; 
     	
     \fill[color=ATLASBlue] (-1cm, 0.5\slideheight-1cm) rectangle(\slidewidth, 0.5\slideheight+1cm);
     \node[text width=\the\paperwidth-1cm,align=center] at (0.4\slidewidth, 0.5\slideheight) {\color{TemplateWhite}\Huge\textbf{\insertsection}};
     
-    %\node[align=center] (/home/ellis/LaTeX/Slides/themeImages/unilogo) at (0.8\slidewidth, 0.5\slideheight){\includegraphics[height=1.8cm]{/home/ellis/LaTeX/Slides/themeImages/ATLAS-Logo-Square-Blue-Globe.png}};
+    %\node[align=center] (/home/karlis/Work/LaTeX/Slides/themeImages/unilogo) at (0.8\slidewidth, 0.5\slideheight){\includegraphics[height=1.8cm]{/home/karlis/Work/LaTeX/Slides/themeImages/ATLAS-Logo-Square-Blue-Globe.png}};
   \end{tikzpicture}
 }
 
@@ -618,56 +613,57 @@
         #1] {\strut#2};%
 }
 
-\usepackage{pgf-pie,etoolbox}
-
-\makeatletter
-\patchcmd\pgfpie@slice
-  {node {\scalefont{#3}\beforenumber#3\afternumber}}
-  {node[/every only number node/.try] {\scalefont{#3}\beforenumber#3\afternumber}}{}{}
-\makeatother
-
-\usetikzlibrary{decorations.pathreplacing}
-
-\pgfdeclaremetadecoration{raisedbrace}{initial}{%
-\state{initial}[width=\pgfmetadecoratedpathlength]{%
-  \decoration{brace}%
-  \pgfsetdecorationsegmenttransformation{%
-      \pgftransformyshift{\pgfmetadecorationsegmentamplitude}%
-  }
-  \beforedecoration{
-    \pgfpathmoveto{\pgfpointmetadecoratedpathfirst}
-    \pgfpathlineto{\pgfpointadd{%
-      \pgfpointmetadecoratedpathfirst%
-      }{%
-      \pgfpointpolar{\pgfdecoratedangle+90}{\pgfmetadecorationsegmentamplitude}%
-      }%
-    }%
-  }%
-  \afterdecoration{%
-    \pgfpathlineto{\pgfpointmetadecoratedpathlast}%
-    \pgfusepath{stroke}
-  }
-}
-}
-
-\usetikzlibrary{tikzmark}
-
-
-
-% Nice diagrams with jets
-\tikzset{
- 	  pics/jet/.style n args={3}{
-        % default rotation: 0 degrees (jet progressing to right)
-        code={
-            \draw [fill=#1!30, thick,join=round](0, 0) -- (#2, -#3) -- (#2, #3) --cycle;
-            \draw [fill=#1!20, thick](#2, 0) ellipse (#3/3 and #3);
-            \draw [thick, ->, >=latex, color=black, fill=#1!90](0, 0)--(#2+#3, 0);
-            
-            \draw [thick, ->, >=latex, color=black, fill=#1!90](0, 0)--(#2+#3-0.1,{(#3-0.1)/2} );
-            \draw [thick, ->, >=latex, color=black, fill=#1!90](0, 0)--(#2+#3-0.1, {-(#3-0.1)/2});
-           \draw [thick, ->, >=latex, color=black, fill=#1!90](0, 0)--(#2+#3-0.2, #3-0.1);
-      	     \draw [thick, ->, >=latex, color=black, fill=#1!90](0, 0)--(#2+#3-0.2,{-(#3-0.1)});
-          
-        }
-    }
-}
+%FOR FEYNMAN DIAGRAMS / BROKEN
+%\usepackage{pgf-pie,etoolbox}
+%
+%\makeatletter
+%\patchcmd\pgfpie@slice
+%  {node {\scalefont{#3}\beforenumber#3\afternumber}}
+%  {node[/every only number node/.try] {\scalefont{#3}\beforenumber#3\afternumber}}{}{}
+%\makeatother
+%
+%\usetikzlibrary{decorations.pathreplacing}
+%
+%\pgfdeclaremetadecoration{raisedbrace}{initial}{%
+%\state{initial}[width=\pgfmetadecoratedpathlength]{%
+%  \decoration{brace}%
+%  \pgfsetdecorationsegmenttransformation{%
+%      \pgftransformyshift{\pgfmetadecorationsegmentamplitude}%
+%  }
+%  \beforedecoration{
+%    \pgfpathmoveto{\pgfpointmetadecoratedpathfirst}
+%    \pgfpathlineto{\pgfpointadd{%
+%      \pgfpointmetadecoratedpathfirst%
+%      }{%
+%      \pgfpointpolar{\pgfdecoratedangle+90}{\pgfmetadecorationsegmentamplitude}%
+%      }%
+%    }%
+%  }%
+%  \afterdecoration{%
+%    \pgfpathlineto{\pgfpointmetadecoratedpathlast}%
+%    \pgfusepath{stroke}
+%  }
+%}
+%}
+%
+%\usetikzlibrary{tikzmark}
+%
+%
+%
+%% Nice diagrams with jets
+%\tikzset{
+% 	  pics/jet/.style n args={3}{
+%        % default rotation: 0 degrees (jet progressing to right)
+%        code={
+%            \draw [fill=#1!30, thick,join=round](0, 0) -- (#2, -#3) -- (#2, #3) --cycle;
+%            \draw [fill=#1!20, thick](#2, 0) ellipse (#3/3 and #3);
+%            \draw [thick, ->, >=latex, color=black, fill=#1!90](0, 0)--(#2+#3, 0);
+%            
+%            \draw [thick, ->, >=latex, color=black, fill=#1!90](0, 0)--(#2+#3-0.1,{(#3-0.1)/2} );
+%            \draw [thick, ->, >=latex, color=black, fill=#1!90](0, 0)--(#2+#3-0.1, {-(#3-0.1)/2});
+%           \draw [thick, ->, >=latex, color=black, fill=#1!90](0, 0)--(#2+#3-0.2, #3-0.1);
+%      	     \draw [thick, ->, >=latex, color=black, fill=#1!90](0, 0)--(#2+#3-0.2,{-(#3-0.1)});
+%          
+%        }
+%    }
+%}
